@@ -1,0 +1,57 @@
+.calender_container{
+	width: 300px;
+	margin: 0 auto;
+}
+.head_container{
+	width: 100%;
+	height: 150px;
+	background-color: #1abc9c;
+	font-family: Verdana,san-serif;
+}
+.month,.year{
+	text-align: center;
+	color:white;
+	font-size: 20px;
+	position:relative;
+	top:50%;
+}
+.prev{
+	float: left;
+	padding-top: 35px;
+	position: relative;
+
+}
+.next{
+		padding-top: 35px;
+	float: right;
+}
+.mid_container{
+ margin:0;
+ padding:2px 0; 
+ background-color: #ddd;
+}
+li{
+	margin: 0;
+	display: inline-block;/*可以让它横排列*/
+	width:12.5%;
+	text-align:center; 
+}
+ul{
+	list-style-type: none;
+}
+.foo_container{
+	margin: 0;
+	padding: 2px 0;
+	background-color: #eee;
+}
+.foo_container ul li{
+	text-align: center;
+	font-size:12px;
+	color: #777; 
+	margin-bottom: 5px;
+}
+.active{
+    padding: 2px;
+    background: #1abc9c;
+    color: white !important
+}
