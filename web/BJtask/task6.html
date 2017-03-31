@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task6</title>
+	<style type="text/css" media="screen">
+		#content li{
+			display:inline-block;
+			height: 50px;
+			width:50px;
+			background-color: red;
+			float:left;
+			padding: 10px;
+			margin: 0 10px;
+			overflow: auto;
+			}
+	</style>
+</head>
+<body>
+	<div>
+		<input type="text" placeholder="请输入数字" id="inputValue">
+		<button id="leftIn">左侧入</button>
+		<button id="rightIn">右侧入</button>
+		<button id="leftOut">左侧出</button>
+		<button id="rightOut">右侧出</button>
+	</div>
+	<ul id="content">
+	</ul>
+<script type="text/javascript" charset="utf-8" async defer>
+	var txt=document.getElementById("inputValue");
+	var content=document.getElementById("content");
+	document.getElementById("inputValue").addEventListener("blur",function(){
+		if(!txt.value.match(/^[0-9]*$/)){
+			alert("请输入数字!");
+			txt.value="";
+		}
+	},false)
+	document.getElementById("leftIn").addEventListener("click",function(){
+		if(txt.value==""||txt.value==null){return false}
+		var newItem=document.createElement("li");
+		var textNode=document.createTextNode(txt.value);
+		newItem.appendChild(textNode);
+		content.insertBefore(newItem,content.childNodes[0]);
+	},false)
+	document.getElementById("rightIn").addEventListener("click",function(){
+		if(txt.value==""||txt.value==null){return false}
+		var newItem=document.createElement("li");
+		var textNode=document.createTextNode(txt.value);
+		newItem.appendChild(textNode);
+		//右边插入就直接插入子节点
+		content.appendChild(newItem);
+	},false)
+	document.getElementById("leftOut").addEventListener("click",function(){
+		if(content.childNodes.length==0){
+			alert("还没输入数字请先输入");
+			return false;
+		}
+		alert("删除最左侧的节点："+content.firstChild.innerHTML);
+		content.removeChild(content.firstChild);
+	},false)
+	document.getElementById("rightOut").addEventListener("click",function(){
+		if(content.childNodes.length==0){
+			alert("还没输入数字请先输入");
+			return false;}
+		alert("删除最右侧的节点："+content.childNodes[content.childNodes.length-1].innerHTML);
+		content.removeChild(content.childNodes[content.childNodes.length-1])
+	},false)
+</script>
+</body>
+
+</html>
